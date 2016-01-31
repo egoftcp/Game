@@ -1,4 +1,8 @@
-
+/*
+ * Class for Achieve command
+ * Contains getters and setters for 
+ * player, game, and achievement ID's
+ */
 public class Achieve {
 	
 	private int pId;

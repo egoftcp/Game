@@ -34,7 +34,7 @@ public class Main {
 				player.add(new Player(id, name));
 
 				break;
-			case 2:
+			case 2:// ADD Game
 
 				System.out.print("Game ID : ");
 				int gameid = scan.nextInt();
@@ -45,7 +45,7 @@ public class Main {
 				game.add(new Game(gameid, gameName));
 
 				break;
-			case 3:
+			case 3:// ADD Achievement
 
 				System.out.print("Achievement ID : ");
 				int achievementId = scan.nextInt();
@@ -62,7 +62,7 @@ public class Main {
 				achievement.add(new Achievement(gId, achievementId, achievementName, achievementPoints));
 
 				break;
-			case 4:
+			case 4:// ADD Friends
 
 				System.out.print("Friend 1 ID : ");
 				int f1Id = scan.nextInt();
@@ -73,7 +73,7 @@ public class Main {
 				fren.add(new Friend(f1Id, f2Id));
 
 				break;
-			case 5:
+			case 5://Plays
 
 				System.out.print("Player ID : ");
 				int PId = scan.nextInt();
@@ -87,7 +87,7 @@ public class Main {
 				play.add(new Play(PId, GId, PIGN));
 
 				break;
-			case 6:
+			case 6://Achieve
 				System.out.print("Player ID : ");
 				int PlayerId = scan.nextInt();
 
@@ -131,7 +131,7 @@ public class Main {
 					System.out.println("No Such Result Found");
 				break;
 			case 8:
-
+				//Compare Player
 				System.out.print("Player ID1 : ");
 				PlayerId = scan.nextInt();
 				System.out.print("Player ID2 : ");
@@ -198,6 +198,7 @@ public class Main {
 
 				break;
 			case 9:
+				//Summarize Player
 				System.out.print("Player ID : ");
 				PlayerId = scan.nextInt();
 				String IGN;
@@ -281,6 +282,7 @@ public class Main {
 
 				break;
 			case 10:
+				//Summarize Game
 				System.out.println("Game ID : ");
 				int gmId = scan.nextInt();
 				int l = -1;
@@ -330,7 +332,7 @@ public class Main {
 				}
 				break;
 			case 11:
-				
+				//Summarize Achievement
 				System.out.print("Game  ID : ");
 				 gId = scan.nextInt();
 				
@@ -351,6 +353,7 @@ public class Main {
 
 				break;
 			case 12:
+				//Achievement Ranking
 				int n = -1;
 
 				for (int a = 0; a < player.size(); a++) {
@@ -372,6 +375,8 @@ public class Main {
 					System.out.println(player.get(a).getName() + "\t" + player.get(a).getId() + "\t" + point);
 				}
 				break;
+			case 13:
+				System.exit(0);
 
 			}
 

@@ -1,4 +1,7 @@
-
+/*
+ * Class for Achievement command
+ * 
+ */
 public class Achievement {
 	private int gId;
 	private int aId;
