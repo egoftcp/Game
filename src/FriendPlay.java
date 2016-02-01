@@ -1,4 +1,8 @@
-
+/*
+ * Class for FriendPlay command
+ * Getters/setters for showing what 
+ * friends play a certain game
+ */
 public class FriendPlay {
 	private int playerId;
 	private int gameId;

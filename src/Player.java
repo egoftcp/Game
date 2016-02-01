@@ -1,4 +1,8 @@
-
+/*
+ * Class for Achieve command
+ * Contains getters and setters for 
+ * adding a new player to database
+ */
 public class Player {
 	
 	private int id ;

@@ -1,6 +1,7 @@
 /*
  * Class for Achievement command
- * 
+ * getters/setters for adding
+ * new achievement to a game
  */
 public class Achievement {
 	private int gId;

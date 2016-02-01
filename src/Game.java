@@ -1,4 +1,8 @@
-
+/*
+ * Class for Game command
+ * Contains getters and setters for 
+ * adding new game to database
+ */
 public class Game {
 	
 	private int id ;

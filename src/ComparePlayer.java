@@ -1,4 +1,8 @@
-
+/*
+ * Class for ComparePlayer command
+ * Contains getters and setters for 
+ * comparing two players
+ */
 public class ComparePlayer {
 
 	private int player1Id;

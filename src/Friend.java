@@ -1,4 +1,7 @@
-
+/*
+ * Class for Friend command
+ * Setter/getter data for making players friends
+ */
 public class Friend {
 	private int id1;
 	private int id2;

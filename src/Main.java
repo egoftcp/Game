@@ -20,93 +20,109 @@ public class Main {
 					+ "\n[8] Compare Player" + "\n[9] Summarize Player" + "\n[10] Summarize Game"
 					+ "\n[11] Summarize Achievement" + "\n[12] Achievement Ranking" + "\n[13] Exit"
 					+ "\n CHOICE   :   ");
-			int option = scan.nextInt();
+			
+			//CHANGE
+			String option = scan.nextLine().trim();
+			
+			if (option.isEmpty()){
+				continue;
+			}
+			
+			String[] promptDivider = option.split("\"");
+			String[] Command = promptDivider[0].split(" ");
+			
+			String[] prompts = option.split(" ");
+			//String commandFirst = Command[0];
+			
 
-			switch (option) {
-			case 1:// ADD Player
+			switch (Command[0]) {
+			case "AddPlayer":// ADD Player
 
-				System.out.print("Player ID : ");
-				int id = scan.nextInt();
+				System.out.println(promptDivider[0]);
+				//System.out.print("Player ID : ");
+				int id = Integer.parseInt(prompts[1]);
 
-				System.out.print("Player Name  : ");
-				String name = scan2.nextLine();
+				//System.out.print("Player Name  : ");
+				String name = promptDivider[1];
 
 				player.add(new Player(id, name));
 
 				break;
-			case 2:// ADD Game
+			case "AddGame":// ADD Game
 
-				System.out.print("Game ID : ");
-				int gameid = scan.nextInt();
+				//System.out.print("Game ID : ");
+				int gameid = Integer.parseInt(prompts[1]);
 
-				System.out.print("Game Name  : ");
-				String gameName = scan2.nextLine();
+				//System.out.print("Game Name  : ");
+				String gameName = promptDivider[1];
 
 				game.add(new Game(gameid, gameName));
 
 				break;
-			case 3:// ADD Achievement
+			case "AddAchievement":// ADD Achievement
 
-				System.out.print("Achievement ID : ");
-				int achievementId = scan.nextInt();
+				//System.out.print("Game Id  : ");
+				int gId = Integer.parseInt(prompts[1]);
+				
+				//System.out.print("Achievement ID : ");
+				int achievementId = Integer.parseInt(prompts[2]);
 
-				System.out.print("achievement Name  : ");
-				String achievementName = scan2.nextLine();
+				//System.out.print("Achievement Name  : ");
+				String achievementName = promptDivider[1];
 
-				System.out.print("Achievement Points : ");
-				int achievementPoints = scan.nextInt();
-
-				System.out.print("Game Id  : ");
-				int gId = scan.nextInt();
+				//System.out.print("Achievement Points : ");
+				int achievementPoints = Integer.parseInt(promptDivider[2].trim());
 
 				achievement.add(new Achievement(gId, achievementId, achievementName, achievementPoints));
 
 				break;
-			case 4:// ADD Friends
+			case "AddFriends":// ADD Friends
 
-				System.out.print("Friend 1 ID : ");
-				int f1Id = scan.nextInt();
+				//System.out.print("Friend 1 ID : ");
+				int f1Id = Integer.parseInt(prompts[1]);
 
-				System.out.print("Friend 2 ID : ");
-				int f2Id = scan.nextInt();
+				//System.out.print("Friend 2 ID : ");
+				int f2Id = Integer.parseInt(prompts[2]);
 
 				fren.add(new Friend(f1Id, f2Id));
+				fren.add(new Friend(f2Id, f1Id));
 
 				break;
-			case 5://Plays
+			case "Plays"://Plays
 
-				System.out.print("Player ID : ");
-				int PId = scan.nextInt();
+				//System.out.print("Player ID : ");
+				int PId = Integer.parseInt(prompts[1]);
 
-				System.out.print("Game ID : ");
-				int GId = scan.nextInt();
+				//System.out.print("Game ID : ");
+				int GId = Integer.parseInt(prompts[2]);
 
-				System.out.print("Player IGN : ");
-				String PIGN = scan2.nextLine();
+				//System.out.print("Player IGN : ");
+				String PIGN =prompts[3];
 
 				play.add(new Play(PId, GId, PIGN));
 
 				break;
-			case 6://Achieve
-				System.out.print("Player ID : ");
-				int PlayerId = scan.nextInt();
+			case "Achieve":
+				//Achieve
+				//System.out.print("Player ID : ");
+				int PlayerId = Integer.parseInt(prompts[1]);
 
-				System.out.print("Game ID : ");
-				int GameId = scan.nextInt();
+				//System.out.print("Game ID : ");
+				int GameId = Integer.parseInt(prompts[2]);
 
-				System.out.print("Achievement ID : ");
-				int AchievementId = scan.nextInt();
+				//System.out.print("Achievement ID : ");
+				int AchievementId = Integer.parseInt(prompts[2]);
 
 				achieve.add(new Achieve(PlayerId, GameId, AchievementId));
 
 				break;
-			case 7:
+			case "FriendsWhoPlay":
 				// Friends Who Play
-				System.out.print("Player ID : ");
-				PlayerId = scan.nextInt();
+				//System.out.print("Player ID : ");
+				PlayerId = Integer.parseInt(prompts[1]);
 
-				System.out.print("Game ID : ");
-				GameId = scan.nextInt();
+				//System.out.print("Game ID : ");
+				GameId = Integer.parseInt(prompts[2]);
 
 				System.out.println("Friend Name    :      Friend ID      :       Player IGN");
 				int v = -1;
@@ -130,14 +146,14 @@ public class Main {
 				if (v == 0)
 					System.out.println("No Such Result Found");
 				break;
-			case 8:
+			case "ComparePlayers":
 				//Compare Player
-				System.out.print("Player ID1 : ");
-				PlayerId = scan.nextInt();
-				System.out.print("Player ID2 : ");
-				int PlayerId2 = scan.nextInt();
-				System.out.print("Game ID : ");
-				int gameId = scan.nextInt();
+				//System.out.print("Player ID1 : ");
+				PlayerId = Integer.parseInt(prompts[1]);
+				//System.out.print("Player ID2 : ");
+				int PlayerId2 = Integer.parseInt(prompts[2]);
+				//System.out.print("Game ID : ");
+				int gameId = Integer.parseInt(prompts[3]);
 
 				for (int a = 0; a < game.size(); a++) {
 					if (gameId == game.get(a).getId()) {
@@ -197,21 +213,25 @@ public class Main {
 				System.out.println("Total score for player 2 : " + score2);
 
 				break;
-			case 9:
+			case "SummarizePlayer":
 				//Summarize Player
-				System.out.print("Player ID : ");
-				PlayerId = scan.nextInt();
+				//System.out.print("Player ID : ");
+				PlayerId = Integer.parseInt(prompts[1]);
 				String IGN;
+				//
 				for (int i = 0; i < player.size(); i++) {
 					if (player.get(i).getId() == PlayerId) {
 						System.out.println("Player Name : " + player.get(i).getName());
 						int pt = 0;
 						int h = 0;
+						//Print output header
 						if (h == 0) {
 							System.out.println("Game \t Achievement \t GameScore \t IGN");
 							System.out.println("-------------------------------------------------------------------");
 							h++;
 						}
+						
+						//Print friends, games played, and gamer points
 						for (int j = 0; j < play.size(); j++) {
 
 							if (play.get(j).getPlayerId() == PlayerId) {
@@ -253,6 +273,7 @@ public class Main {
 						if (h == 0)
 							System.out.println("NO Result Found");
 
+						//Print total gamer score
 						System.out.println("" + "total score : " + pt + "\nFriend \t GameScore");
 
 						for (int a = 0; a < fren.size(); a++) {
@@ -268,6 +289,7 @@ public class Main {
 										}
 									}
 								}
+								//Print friends' scores
 								for (int hi = 0; hi < player.size(); hi++) {
 									if (fren.get(a).getId2() == player.get(hi).getId()) {
 										System.out.print(player.get(hi).getName() + "\t" + k + "\n");
@@ -281,11 +303,12 @@ public class Main {
 				}
 
 				break;
-			case 10:
+			case "SummarizeGame":
 				//Summarize Game
-				System.out.println("Game ID : ");
-				int gmId = scan.nextInt();
+				//System.out.println("Game ID : ");
+				int gmId = Integer.parseInt(prompts[1]);
 				int l = -1;
+				//Print all who have played and times achievements have been done
 				for (int a = 0; a < game.size(); a++) {
 					if (gmId == game.get(a).getId()) {
 						System.out.println("Game Name : " + game.get(a).getName());
@@ -321,7 +344,7 @@ public class Main {
 
 								for (int r = 0; r < player.size(); r++) {
 									if (player.get(r).getId() == play.get(b).getPlayerId()) {
-										System.out.println(player.get(r).getName() + "\t" + play.get(b).getPlayerId()
+										System.out.println(player.get(r).getName() + "\t" + play.get(b).getPlayerId() + "\t" +
 												+ p + "/" + s + "\t" + points + "\t" + play.get(b).getName());
 									}
 								}
@@ -331,31 +354,41 @@ public class Main {
 					}
 				}
 				break;
-			case 11:
+			case "SummarizeAchievement":
 				//Summarize Achievement
 				System.out.print("Game  ID : ");
-				 gId = scan.nextInt();
+				gId = Integer.parseInt(prompts[1]);
+				double haveAchieve = 0;
+				double allPlayers = 0;
 				
 				System.out.print("Achievement  ID : ");
-				int aId = scan.nextInt();
+				int aId = Integer.parseInt(prompts[2]);
 				System.out.println("Player Id \t Player Name");
 				System.out.println("---------------------------------------------------------------------");
 				
+				//Print all players with this achievement
 				for(int a=0;a<achieve.size();a++){
 					if(achieve.get(a).getaId()==aId && achieve.get(a).getgId()==gId){
 						for(int b=0;b<player.size();b++){
 							if(achieve.get(a).getpId()==player.get(b).getId()){
 								System.out.println(player.get(b).getId()+"\t"+player.get(b).getName());
+								haveAchieve+=1;
+								allPlayers+=1;
+							}
+							else{
+								allPlayers+=1;
 							}
 						}
 					}
 				}
+				System.out.println((haveAchieve/allPlayers) + " percent have achievement");
 
 				break;
-			case 12:
+			case "AchievementRanking":
 				//Achievement Ranking
 				int n = -1;
 
+				//Prints a record of all players and their gamer points
 				for (int a = 0; a < player.size(); a++) {
 					int point = 0;
 					for (int b = 0; b < achieve.size(); b++) {
@@ -375,7 +408,8 @@ public class Main {
 					System.out.println(player.get(a).getName() + "\t" + player.get(a).getId() + "\t" + point);
 				}
 				break;
-			case 13:
+			case "Exit":
+			//Exit program
 				System.exit(0);
 
 			}

@@ -1,4 +1,9 @@
-
+/*
+ * Class for Play command
+ * Contains getters and setters for 
+ * setting a player as having played 
+ * a certain game
+ */
 public class Play {
 	
 	private int playerId;
